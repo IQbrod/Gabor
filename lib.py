@@ -57,10 +57,10 @@ def gaussian_kernel(lambd = 16.0, theta = 0.0, n = 0, sl = 0.7, st = 1.4, nl = 4
 	return gk
 
 def kernel_plot(k):
-	kr = (k.view(np.float).reshape(k.shape + (2,)))[:,:,0]  # extract real (cos) part
-	ki = (k.view(np.float).reshape(k.shape + (2,)))[:,:,1]  # extract imaginary (sin) part
-	mpimg.imsave('kr.jpg',kr,cmap="gray")
-	mpimg.imsave('ki.jpg',ki,cmap="gray")
+	kr = (k.view(np.float32).reshape(k.shape + (2,)))[:,:,0]  # extract real (cos) part
+	ki = (k.view(np.float32).reshape(k.shape + (2,)))[:,:,1]  # extract imaginary (sin) part
+	mpimg.imsave('res/kr.jpg',kr,cmap="gray")
+	mpimg.imsave('res/ki.jpg',ki,cmap="gray")
 	fig, (re, im) = plt.subplots(1, 2)  # real and imaginary parts
 	re.imshow(kr, cmap='gray')
 	re.set_title('Real part')
